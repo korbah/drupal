@@ -11,7 +11,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: ssh://git@github.com:korbah/drupal.git
+    repoURL: ssh://git@github.com/korbah/drupal.git
     targetRevision: main
     path: environments/staging/drupal
   destination:
