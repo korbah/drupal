@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: drupal-local-dev-drupal
+  name: drupal
   labels:
     app: drupal
 spec:
@@ -17,6 +17,6 @@ spec:
       containers:
         - name: drupal
           imagePullPolicy: Always
-          image: dock1a/drupal-local-dev-drupal
+          image: korbah/drupal-local-dev-drupal
           ports:
             - containerPort: 80
