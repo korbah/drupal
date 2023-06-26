@@ -12,7 +12,7 @@ spec:
   project: default
   source:
     repoURL: ssh://git@github.com/korbah/drupal.git
-    targetRevision: main
+    targetRevision: master
     path: environments/staging/drupal
   destination:
     server: https://kubernetes.default.svc
