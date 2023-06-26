@@ -1,0 +1,10 @@
+---
+namespace: staging
+replicas:
+  - name: drupal-deployment
+    count: 2
+images:
+  - name: dock1a/drupal-local-dev-drupal
+    newTag: v0.0.1
+resources:
+  - ../../../infra-base

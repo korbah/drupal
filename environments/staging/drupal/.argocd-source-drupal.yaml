@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - dock1a/drupal-local-dev-drupal:v0.0.1
