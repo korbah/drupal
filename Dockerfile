@@ -1,6 +1,6 @@
 # LOCAL DEV Environment
 
-FROM dock1a/drupal-local-dev-drupal:0.0.1
+FROM korbah/drupal-base-apache-php8:latest
 
 
 #main entry point for the container that will be executed every time the container starts
