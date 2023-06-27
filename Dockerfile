@@ -7,5 +7,5 @@ FROM dock1a/drupal-local-dev-drupal:0.0.1
 COPY docker-entrypoint.sh /root/docker-entrypoint.sh
 RUN chmod 755 /root/docker-entrypoint.sh
 
-ENTRYPOINT [ "/bin/bash", "/root/docker-entrypoint.sh" ]
+ENTRYPOINT [ "apache2-foreground" ]
 
