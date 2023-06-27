@@ -3,7 +3,7 @@ name: WebOps-CI
 on:
   push:
     branches:
-      - 'main'
+      - 'master'
 
 jobs:
 
