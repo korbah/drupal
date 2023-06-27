@@ -88,6 +88,22 @@ if [ "${ENVIRONMENT}" = "dev" ]; then
     #exec "$@"
     echo "-------------------- END DEV EP Script --------------------"
 
+elif [ "${ENVIRONMENT}" = "new" ]; then 
+
+    echo "--- Installing Drupal First time"
+    DrupalFolder="/opt/drupal"
+    export COMPOSER_HOME="$(mktemp -d)"
+    mkdir /tmp/drupal
+    composer create-project --no-interaction "drupal/recommended-project:$DRUPAL_VERSION" /tmp/drupal
+    cp -r /tmp/drupal/* /opt/drupal/
+    chown -R www-data:${LOCAL_GROUP_ID} /opt/drupal/web/sites /opt/drupal/web/modules /opt/drupal/web/themes
+    rm -Rf /var/www/html && ln -sf /opt/drupal/web /var/www/html
+    rm -rf "$COMPOSER_HOME"
+    rm -rf /tmp/drupal
+
+
+    apache2-foreground
+
 elif [ "${ENVIRONMENT}" = "staging" ]; then 
     apache2-foreground
 
