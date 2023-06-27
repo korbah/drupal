@@ -20,3 +20,11 @@ spec:
           image: korbah/drupal-local-dev-drupal
           ports:
             - containerPort: 80
+          volumeMounts: 
+            - mountPath: /var/www/html
+              name: vol-drupal-files
+              subPath: web
+      volumes: 
+        - name: vol-drupal-files
+          persistentVolumeClaim: 
+            claimName: drupal-pvc-files

@@ -68,13 +68,8 @@ if [ "${ENVIRONMENT}" = "dev" ]; then
     #
     #npm install
 
-
-
-
-
     # run npm build-dev
     #npm run build-dev 
-
 
     #service apache2 start
 
@@ -100,7 +95,6 @@ elif [ "${ENVIRONMENT}" = "new" ]; then
     rm -Rf /var/www/html && ln -sf /opt/drupal/web /var/www/html
     rm -rf "$COMPOSER_HOME"
     rm -rf /tmp/drupal
-
 
     apache2-foreground
 
