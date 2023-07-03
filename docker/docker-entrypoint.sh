@@ -97,6 +97,7 @@ elif [ "${ENVIRONMENT}" = "new" ]; then
     rm -rf /tmp/drupal
 
     #apache2-foreground
+    service apache2 start
     exec "$@"
 
 elif [ "${ENVIRONMENT}" = "staging" ]; then
@@ -115,8 +116,10 @@ elif [ "${ENVIRONMENT}" = "staging" ]; then
     chown -R www-data:www-data ${new_webroot}/sites ${new_webroot}/modules ${new_webroot}/themes
     
     #apache2-foreground
+    service apache2 start
     exec "$@"
 elif [ "${ENVIRONMENT}" = "production" ]; then 
     #apache2-foreground
+    service apache2 start
     exec "$@"
 fi
