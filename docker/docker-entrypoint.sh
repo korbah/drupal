@@ -107,5 +107,3 @@ elif [ "${ENVIRONMENT}" = "production" ]; then
     apache2-foreground
 
 fi
-
-
