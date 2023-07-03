@@ -18,12 +18,14 @@ spec:
         - name: drupal
           imagePullPolicy: Always
           image: korbah/drupal-local-dev-drupal
+          env:
+          - name: CREDS
+            value: "blue"
           ports:
             - containerPort: 80
           volumeMounts: 
             - mountPath: /var/www/html
               name: vol-drupal-files
-              subPath: web
       volumes: 
         - name: vol-drupal-files
           persistentVolumeClaim: 
