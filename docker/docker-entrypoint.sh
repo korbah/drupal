@@ -112,12 +112,12 @@ elif [ "${ENVIRONMENT}" = "staging" ]; then
     # Use sed to replace the webroot path in the virtual host file
     echo "Setting up webroot to $new_webroot"
 
-    sed -i "s|DocumentRoot /var/www/old_webroot|DocumentRoot $new_webroot|" "$virtual_host_file"
-    chown -R www-data:www-data ${new_webroot}/sites ${new_webroot}/modules ${new_webroot}/themes
+    #sed -i "s|DocumentRoot /var/www/old_webroot|DocumentRoot $new_webroot|" "$virtual_host_file"
+    #chown -R www-data:www-data ${new_webroot}/sites ${new_webroot}/modules ${new_webroot}/themes
     
     #apache2-foreground
     service apache2 start
-    tail -f /var/log/apache2/*.log
+    tail -f /dev/null
     #exec "$@"
 elif [ "${ENVIRONMENT}" = "production" ]; then 
     tail -f /var/log/apache2/*.log
