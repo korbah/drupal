@@ -96,9 +96,9 @@ elif [ "${ENVIRONMENT}" = "new" ]; then
     rm -rf "$COMPOSER_HOME"
     rm -rf /tmp/drupal
 
-    #apache2-foreground
-    service apache2 start
-    exec "$@"
+    apache2-foreground
+    #service apache2 start
+    #exec "$@"
 
 elif [ "${ENVIRONMENT}" = "staging" ]; then
     #chown -R www-data:www-data /opt/drupal/web/sites /opt/drupal/web/modules /opt/drupal/web/themes
@@ -117,9 +117,9 @@ elif [ "${ENVIRONMENT}" = "staging" ]; then
     
     apache2-foreground
     #service apache2 start
-    exec "$@"
+    #exec "$@"
 elif [ "${ENVIRONMENT}" = "production" ]; then 
     apache2-foreground
-    service apache2 start 
-    exec "$@"
+    
+    #exec "$@"
 fi
