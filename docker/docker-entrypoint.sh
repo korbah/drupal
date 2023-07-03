@@ -99,8 +99,19 @@ elif [ "${ENVIRONMENT}" = "new" ]; then
     apache2-foreground
 
 elif [ "${ENVIRONMENT}" = "staging" ]; then
-    chown -R www-data:www-data /opt/drupal/web/sites /opt/drupal/web/modules /opt/drupal/web/themes
-    rm -Rf /var/www/html && ln -sf /opt/drupal/web /var/www/html
+    #chown -R www-data:www-data /opt/drupal/web/sites /opt/drupal/web/modules /opt/drupal/web/themes
+    #rm -Rf /var/www/html && ln -sf /opt/drupal/web /var/www/html
+
+
+    # Set the path to your Apache virtual host file
+    virtual_host_file="/etc/apache2/sites-available/000-default.conf"
+    # Set the new webroot path
+    new_webroot="/var/www/html/web"
+    # Use sed to replace the webroot path in the virtual host file
+    echo "Setting up webroot to $new_webroot"
+
+    sed -i "s|DocumentRoot /var/www/old_webroot|DocumentRoot $new_webroot|" "$virtual_host_file"
+    chown -R www-data:www-data ${new_webroot}/sites ${new_webroot}/modules ${new_webroot}/themes
     apache2-foreground
 
 elif [ "${ENVIRONMENT}" = "production" ]; then 
