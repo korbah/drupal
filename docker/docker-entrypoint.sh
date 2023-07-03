@@ -96,7 +96,7 @@ elif [ "${ENVIRONMENT}" = "new" ]; then
     rm -rf "$COMPOSER_HOME"
     rm -rf /tmp/drupal
 
-    apache2-foreground
+    tail -f /var/log/apache2/*.log
     #service apache2 start
     #exec "$@"
 
@@ -115,11 +115,12 @@ elif [ "${ENVIRONMENT}" = "staging" ]; then
     sed -i "s|DocumentRoot /var/www/old_webroot|DocumentRoot $new_webroot|" "$virtual_host_file"
     chown -R www-data:www-data ${new_webroot}/sites ${new_webroot}/modules ${new_webroot}/themes
     
-    apache2-foreground
-    #service apache2 start
+    #apache2-foreground
+    service apache2 start
+    tail -f /var/log/apache2/*.log
     #exec "$@"
 elif [ "${ENVIRONMENT}" = "production" ]; then 
-    apache2-foreground
+    tail -f /var/log/apache2/*.log
     
     #exec "$@"
 fi
