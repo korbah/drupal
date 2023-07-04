@@ -15,7 +15,7 @@ RUN chown -R www-data:www-data /var/www/html/
 RUN sed -i "s|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|" "/etc/apache2/sites-available/000-default.conf"
 RUN sed -i "s|'host' => 'mysql'|'host' => 'drupal-mysql-service'|" "/var/www/html/web/sites/default/settings.php"
 
-RUN /var/www/html/vendor/drush/drush/drush cr -y
+
 #CMD [ "apache2-foreground" ] 
 #ENTRYPOINT [ "/bin/bash /root/docker-entrypoint.sh" ]
 
