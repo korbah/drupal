@@ -1,7 +1,7 @@
 ---
 namespace: default
 replicas:
-  - name: drupal
+  - name: drupal2
     count: 3
 images:
   - name: korbah/drupal-local-dev-drupal
