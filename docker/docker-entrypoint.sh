@@ -112,9 +112,10 @@ elif [ "${ENVIRONMENT}" = "staging" ]; then
     new_webroot="/var/www/html/web"
     # Use sed to replace the webroot path in the virtual host file
     echo "Setting up webroot to $new_webroot"
-
-    #sed -i "s|DocumentRoot /var/www/old_webroot|DocumentRoot $new_webroot|" "$virtual_host_file"
-    #chown -R www-data:www-data ${new_webroot}/sites ${new_webroot}/modules ${new_webroot}/themes
+    cp -R /opt/drupal/* /var/www/html/
+    chown -R www-data:www-data /var/www/html/
+    sed -i "s|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|" "/etc/apache2/sites-available/000-default.conf"
+    chown -R www-data:www-data ${new_webroot}/sites ${new_webroot}/modules ${new_webroot}/themes
     
     apache2-foreground
     #service apache2 start
