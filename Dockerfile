@@ -8,7 +8,16 @@ COPY docker/docker-entrypoint.sh /root/docker-entrypoint.sh
 RUN mkdir /opt/drupal
 COPY . /opt/drupal
 RUN chmod 755 /root/docker-entrypoint.sh
-#ENTRYPOINT [ "apache2-foreground" ]
+
+RUN cp -R /opt/drupal/* /var/www/html/
+RUN chown -R www-data:www-data /var/www/html/
+RUN sed -i "s|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|" "/etc/apache2/sites-available/000-default.conf"
+RUN chown -R www-data:www-data /var/www/html/
+
+
+
+
+ENTRYPOINT [ "apache2-foreground" ]
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
-ENTRYPOINT [ "/bin/bash/", "/root/docker-entrypoint.sh" ]
+#ENTRYPOINT [ "/bin/bash/", "/root/docker-entrypoint.sh" ]
 
