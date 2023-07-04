@@ -17,6 +17,6 @@ RUN sed -i "s|'host' => 'mysql'|'host' => 'drupal-mysql-service'|" "/var/www/htm
 
 
 #CMD [ "apache2-foreground" ] 
-ENTRYPOINT [ "/bin/bash /root/docker-entrypoint.sh" ]
+ENTRYPOINT [ "/bin/bash", "/root/docker-entrypoint.sh" ]
 
 #ENTRYPOINT [ "apache2-foreground" ]
