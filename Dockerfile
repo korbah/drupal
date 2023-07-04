@@ -5,7 +5,8 @@ FROM korbah/drupal-base-apache-php8:latest
 
 #main entry point for the container that will be executed every time the container starts
 COPY docker/docker-entrypoint.sh /root/docker-entrypoint.sh
-COPY web /var/www/html
+RUN mkdir /opt/drupal
+COPY web /opt/drupal
 RUN chmod 755 /root/docker-entrypoint.sh
 ENTRYPOINT [ "apache2-foreground" ]
 #ENTRYPOINT ["tail", "-f", "/dev/null"]
