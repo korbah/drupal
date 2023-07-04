@@ -18,8 +18,9 @@ echo "Clearing up caches"
 cd /var/www/html && vendor/drush/drush/drush cr -y
 
 echo "Starting apache"
-#apache2-foreground
+apache2-foreground
 #service apache2 start
 #tail -f /dev/null
-exec "$@"
+
+#exec "$@"
 
