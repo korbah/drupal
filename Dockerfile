@@ -13,8 +13,11 @@ RUN curl -OL https://github.com/drush-ops/drush-launcher/releases/latest/downloa
   && mv drush.phar /usr/local/bin/drush
 #RUN cp -R /opt/drupal/* /var/www/html/
 #RUN chown -R www-data:www-data /var/www/html/
-RUN sed -i "s|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|" "/etc/apache2/sites-available/000-default.conf"
-RUN sed -i "s|DocumentRoot |DocumentRoot /var/www/html/web|" "web/sites/default/settings.php"
-ENTRYPOINT [ "apache2-foreground" ]
+
+
+CMD ["apache2-foreground"]
+ENTRYPOINT [ "/bin/bash /root/docker-entrypoint.sh" ]
+
+#ENTRYPOINT [ "apache2-foreground" ]
 
 
