@@ -12,7 +12,7 @@ chown -R www-data:www-data /var/www/html/
 sed -i "s|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|" "/etc/apache2/sites-available/000-default.conf"
 sed -i "s|'host' => 'mysql'|'host' => 'drupal-mysql-service'|" "/etc/apache2/sites-available/000-default.conf"
 
-cd /var/www/html && composer require drush/drush && vendor/drush/drush/drush cr -y
+cd /var/www/html && vendor/drush/drush/drush cr -y
 
 apache2-foreground
 #service apache2 start
