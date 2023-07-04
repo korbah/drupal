@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: drupal
+  namespace: staging
   labels:
     app: drupal
 spec:
@@ -27,4 +28,4 @@ spec:
       volumes: 
         - name: vol-drupal-files
           persistentVolumeClaim: 
-            claimName: drupal-files
+            claimName: drupal-pvc

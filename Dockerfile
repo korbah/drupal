@@ -14,10 +14,6 @@ RUN chown -R www-data:www-data /var/www/html/
 RUN sed -i "s|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|" "/etc/apache2/sites-available/000-default.conf"
 RUN chown -R www-data:www-data /var/www/html/
 
-
-
-
 ENTRYPOINT [ "apache2-foreground" ]
-#ENTRYPOINT ["tail", "-f", "/dev/null"]
-#ENTRYPOINT [ "/bin/bash/", "/root/docker-entrypoint.sh" ]
+
 

@@ -1,8 +1,8 @@
 ---
-namespace: staging
+namespace: default
 replicas:
   - name: drupal
-    count: 2
+    count: 3
 images:
   - name: korbah/drupal-local-dev-drupal
     newTag: v0.1.7
