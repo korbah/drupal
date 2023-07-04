@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: drupal2
+  name: drupal
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: korbah/drupal-local-dev-drupal:~v0.1

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: drupal2-files
+  name: drupal-files
   namespace: default
 spec:
   accessModes:
