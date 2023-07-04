@@ -18,7 +18,7 @@
 #sed -i "s|'host' => 'mysql'|'host' => 'drupal-mysql-service'|" "/etc/apache2/sites-available/000-default.conf"
 
 echo "Clearing up caches"
-#cd /var/www/html && vendor/drush/drush/drush cr -y
+/var/www/html/vendor/drush/drush/drush cr -y
 
 echo "Starting apache"
 apache2-foreground
