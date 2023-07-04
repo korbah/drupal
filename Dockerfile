@@ -13,7 +13,6 @@ RUN chmod 755 /root/docker-entrypoint.sh
 #RUN chown -R www-data:www-data /var/www/html/
 RUN sed -i "s|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|" "/etc/apache2/sites-available/000-default.conf"
 
-
 ENTRYPOINT [ "apache2-foreground" ]
 
 
