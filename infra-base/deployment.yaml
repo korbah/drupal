@@ -22,7 +22,7 @@ spec:
           ports:
             - containerPort: 80
           volumeMounts: 
-            - mountPath: /var/www/html
+            - mountPath: /mnt/drupal
               name: vol-drupal-files
               subPath: web
       volumes: 
