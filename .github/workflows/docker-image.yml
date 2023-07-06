@@ -34,5 +34,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: korbah/drupal-local-dev-drupal:v0.1.13
+          tags: korbah/drupal-local-dev-drupal:v0.1.14
           labels: ${{ steps.meta.outputs.labels }}
