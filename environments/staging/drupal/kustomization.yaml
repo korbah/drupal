@@ -5,6 +5,6 @@ replicas:
     count: 3
 images:
   - name: korbah/drupal-local-dev-drupal
-    newTag: v0.1.15
+    newTag: v0.1.16
 resources:
   - ../../../infra-base
